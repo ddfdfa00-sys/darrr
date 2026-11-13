@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دار القرآن الكريم - مسجد معاوية بن أبي سفيان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1b4332;
+            --secondary-color: #2d6a4f;
+            --accent-color: #d4af37;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2b2b2b;
+            --light-text: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(45, 106, 79, 0.85)), url('https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1200') center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b89628;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .founder-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            border-right: 6px solid var(--accent-color);
+        }
+
+        .volunteer-box-card {
+            border-right: 6px solid var(--primary-color);
+        }
+
+        .founder-img-wrapper {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .founder-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .founder-info h3 {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .founder-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .founder-desc {
+            color: var(--text-color);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* شبكة الحلقات والمستويات والبطاقات */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+        }
+
+        .volunteer-card {
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            padding: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary-color);
+            background-color: #fff;
+        }
+
+        .form-section {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            gap: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 0.8rem;
+                justify-content: center;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .founder-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>دار القرآن الكريم</h1>
+                <p>مسجد معاوية بن أبي سفيان</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#founder">المؤسس</a></li>
+                    <li><a href="#programs">الحلقات</a></li>
+                    <li><a href="#volunteers">فريق التطوع</a></li>
+                    <li><a href="#gallery">الصور</a></li>
+                    <li><a href="#register">التسجيل</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ"</h2>
+        <p>أهلاً بكم في دار القرآن الكريم بمسجد معاوية بن أبي سفيان. نرحب بأبنائنا وإخواننا الراغبين في حفظ كتاب الله وتعلّم أحكام تجويده.</p>
+        <a href="#register" class="btn">انضم إلى الحلقات الآن</a>
+    </section>
+
+    <div class="container">
+
+        <!-- قسم المؤسس -->
+        <section id="founder">
+            <h2 class="section-title">مؤسس ومعلم الدار</h2>
+            <div class="founder-card">
+                <div class="founder-img-wrapper">
+                    <img src="https://i.ibb.co/v4Nj80z1/sheikh.jpg" alt="الشيخ محمد الشامي" class="founder-img">
+                </div>
+                <div class="founder-info">
+                    <h3>الشيخ محمد الشامي</h3>
+                    <div class="founder-title">مؤسس ومربّي دار القرآن الكريم</div>
+                    <p class="founder-desc">
+                        يُشرف فضيلة الشيخ محمد الشامي على تأسيس وإدارة دار القرآن الكريم في مسجد معاوية بن أبي سفيان، حيث نذر وقته لخدمة كتاب الله تعالى وتعليمه للأجيال الناشئة والشباب والكبار، وتربيتهم على أخلاق القرآن الكريم والتجويد المتقن.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الحلقات والمستويات -->
+        <section id="programs">
+            <h2 class="section-title">الحلقات والمستويات الدراسية</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>الحلقة التأسيسية</h3>
+                    <p>تعلم مخارج الحروف، وتصحيح القراءة والنطق، وتلاوة السور البسيطة للمبتدئين.</p>
+                </div>
+                <div class="card">
+                    <h3>المستوى الأول</h3>
+                    <p>بدء حفظ الأجزاء الأولى مع التجويد النظري والتطبيقي الأساسي.</p>
+                </div>
+                <div class="card">
+                    <h3>المستوى الثاني</h3>
+                    <p>متابعة برنامج الحفظ ومراجعة الأجزاء المحفوظة وتطبيق أحكام التجويد المتوسطة.</p>
+                </div>
+                <div class="card">
+                    <h3>المستوى الثالث</h3>
+                    <p>الحفظ المكثف ومراجعة القرآن الكريم الشاملة مع إتقان مخارج الحروف والصفات.</p>
+                </div>
+                <div class="card">
+                    <h3>حلقة الإجازة بالسند</h3>
+                    <p>تأهيل الحفاظ المتقنين للحصول على الإجازة بالسند المتصل إلى رسول الله ﷺ.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم فريق العمل التطوعي -->
+        <section id="volunteers">
+            <h2 class="section-title">فريق العمل التطوعي</h2>
+            
+            <div class="founder-card volunteer-box-card">
+                <div class="founder-img-wrapper">
+                    <img src="https://i.ibb.co/TBVG4SGS/frg.jpg" alt="فريق العمل التطوعي" class="founder-img">
+                </div>
+                <div class="founder-info">
+                    <h3>عطاء مجتمعي وبيئي</h3>
+                    <div class="founder-title">خدمة المجتمع والبيئة بروح قرآنية</div>
+                    <p class="founder-desc">
+                        انطلاقاً من تعاليم ديننا الحنيف، يشارك فريق العمل التطوعي التابع لدار القرآن في العديد من الأنشطة المجتمعية والميدانية؛ كالحفاظ على البيئة، والتشجير، وحملات النظافة العامة في المسجد ومحيطه، والحملات التوعوية لترسيخ القيم والسلوكيات الإيجابية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card volunteer-card">
+                    <h3>الحفاظ على البيئة والتشجير</h3>
+                    <p>مبادرات دورية للعناية بالمرافق العامة وزراعة الأشجار لنشر ثقافة النظافة والجمال البيئي.</p>
+                </div>
+                <div class="card volunteer-card">
+                    <h3>حملات النظافة العامة</h3>
+                    <p>تنظيم حملات تطوعية لتنظيف المسجد، الساحات، والمرافق المحيطة بروح الفريق الواحد.</p>
+                </div>
+                <div class="card volunteer-card">
+                    <h3>الحملات التوعوية</h3>
+                    <p>المشاركة في المبادرات التثقيفية ونشر الوعي الأخلاقي والمجتمعي بين أبناء الحي.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- معرض الصور -->
+        <section id="gallery">
+            <h2 class="section-title">معرض صور الدار</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/Dfm1jB5q/1.jpg" alt="حلقات القرآن">
+                    <div class="gallery-caption">جانب من حلقات الحفظ والتلاوة</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/sv8vmqGW/2.jpg" alt="المسجد والدار">
+                    <div class="gallery-caption">مسجد معاوية بن أبي سفيان</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/N6kKJXDx/3.jpg" alt="التكريم والأنشطة">
+                    <div class="gallery-caption">تكريم الطلاب المتميزين</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- استمارة التسجيل -->
+        <section id="register">
+            <h2 class="section-title">التسجيل في الدار</h2>
+            <div class="form-section">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('تم استلام طلبك بنجاح! سنقوم بالتواصل معك قريباً.');">
+                    <div class="form-group">
+                        <label for="fullname">الاسم الكامل:</label>
+                        <input type="text" id="fullname" name="fullname" required placeholder="أدخل اسم الطالب أو المتطوع الرباعي">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">العمر:</label>
+                        <input type="number" id="age" name="age" required placeholder="أدخل العمر">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف (واتساب):</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="07XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="program">اختر الحلقة أو النشاط:</label>
+                        <select id="program" name="program" required>
+                            <option value="">-- اختر من القائمة --</option>
+                            <option value="foundation">الحلقة التأسيسية</option>
+                            <option value="level1">المستوى الأول</option>
+                            <option value="level2">المستوى الثاني</option>
+                            <option value="level3">المستوى الثالث</option>
+                            <option value="ijaza">حلقة الإجازة بالسند</option>
+                            <option value="volunteer">الانضمام إلى فريق العمل التطوعي</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">ملاحظات أو الجزء المحفوظ حالياً:</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="اذكر عدد الأجزاء المحفوظة سابقاً، أو مجال التطوع الذي تفضله..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال الطلب</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- معلومات التواصل -->
+        <section id="contact">
+            <h2 class="section-title">التواصل والموقع</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>العنوان</h4>
+                    <p>مسجد معاوية بن أبي سفيان</p>
+                </div>
+                <div class="contact-item">
+                    <h4>أوقات الدوام</h4>
+                    <p>من الأحد إلى الخميس<br>بعد صلاة العصر وحتى صلاة المغرب</p>
+                </div>
+                <div class="contact-item">
+                    <h4>للاستفسار والتواصل</h4>
+                    <p>هاتف / واتساب: 07XXXXXXXX</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - دار القرآن الكريم | مسجد معاوية بن أبي سفيان</p>
+    </footer>
+
+</body>
+</html>
